@@ -1,6 +1,6 @@
-var phonecatAnimations = angular.module('phonecatAnimations', ['ngAnimate']);
+var teamcityAnimations = angular.module('teamcityAnimations', ['ngAnimate']);
 
-phonecatAnimations.animation('.phone', function() {
+teamcityAnimations.animation('.project', function() {
 
   var animateUp = function(element, className, done) {
     if(className != 'active') {

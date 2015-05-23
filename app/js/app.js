@@ -2,27 +2,31 @@
 
 /* App Module */
 
-var phonecatApp = angular.module('phonecatApp', [
+var teamcityApp = angular.module('teamcityApp', [
   'ngRoute',
-  'phonecatAnimations',
+  'teamcityAnimations',
 
-  'phonecatControllers',
-  'phonecatFilters',
-  'phonecatServices'
-]);
+  'teamcityControllers',
+  'teamcityFilters',
+  'teamcityServices'
+])
+.run(function($rootScope) {
+    $rootScope.host = "tul1wwptc1.corporate.local";
+    $rootScope.name = "TeamCity Production";
+});
 
-phonecatApp.config(['$routeProvider',
+teamcityApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/phones', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'PhoneListCtrl'
+      when('/projects', {
+        templateUrl: 'partials/project-list.html',
+        controller: 'projectListCtrl'
       }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/projects/:projectId', {
+        templateUrl: 'partials/project-detail.html',
+        controller: 'projectDetailCtrl'
       }).
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/projects'
       });
   }]);

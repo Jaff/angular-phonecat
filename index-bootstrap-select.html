@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>TeamCity API</title>
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="app/bower_components/bootstrap-select/dist/css/bootstrap-select.css"/>
+    <link rel="stylesheet" href="app/css/app.css">
+
+  </head>
+
+  <body ng-app="myApp">
+
+    <div class="container" ng-controller="TCController">
+
+        <div class="dropdown" ng-controller="SimpleUsageCtrl">
+            <select class="selectpicker" ng-model="TCEnv">
+              <option>Production</option>
+              <option>Sandbox</option>
+              <option>Relish</option>
+            </select>
+        </div>
+
+       <table class="table-responsive">
+               <thead>
+                   <tr>
+                   <th>Project Id</th>
+                   <th>Parent Project Id</th>
+                   <th>Name</th>
+                   <th>Description</th>
+                   <th>Url</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr ng-repeat="p in projects">
+                       <td><a ng-href="#/projects/:{{p.id}}"> {{p.id}}</a></td>
+                       <td>{{p.parentProjectId}}</td>
+                       <td>{{p.name}}</td>
+                       <td class="">{{p.description}}</td>
+                       <td ><a ng-href="{{p.webUrl}}">{{p.href}}</a></td>
+                   </tr>
+               </tbody>
+          </table>
+<!--
+	  {{ projects | json }}
+-->	  
+	</div> 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+     <script src="app/bower_components/jquery/dist/jquery.js"></script>
+     <script src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+     <script src="app/bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+
+     <script src="app/bower_components/angular/angular.min.js"></script>
+     <script src="app/bower_components/angular/angular.js"></script>
+     <script src="app/bower_components/angular-animate/angular-animate.js"></script>
+     <script src="app/bower_components/angular-route/angular-route.js"></script>
+     <script src="app/bower_components/angular-resource/angular-resource.js"></script>
+     <script src="script.js"></script>
+  </body>
+
+</html>

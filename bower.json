@@ -1,17 +1,18 @@
 {
-  "name": "angular-phonecat",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-phonecat",
+  "name": "angular-TC2",
+  "description": "A starter project for AngularJS for using TeamCity API",
+  "version": "0.0.3",
+  "homepage": "https://github.com/Jaff/angular-phonecat",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "angular": "1.3.x",
     "angular-mocks": "1.3.x",
-    "jquery": "~2.1.1",
+    "jquery": "~2.1.4",
     "bootstrap": "~3.1.1",
     "angular-route": "1.3.x",
     "angular-resource": "1.3.x",
-    "angular-animate": "1.3.x"
+    "angular-animate": "1.3.x",
+    "ui.bootstrap": "~0.13.x"
   }
 }

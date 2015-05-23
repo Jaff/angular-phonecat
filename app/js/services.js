@@ -2,11 +2,11 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var teamcityServices = angular.module('teamcityServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
+teamcityServices.factory('project', ['$resource',
   function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+    return $resource('http://{{rootScope.host}}/guestAuth/app/rest/projects/', {}, {
+      query: {method:'GET', params:{projectId:'projects'}, isArray:true}
     });
   }]);

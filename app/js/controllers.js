@@ -2,21 +2,37 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var teamcityControllers = angular.module('teamcityControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
-    $scope.orderProp = 'age';
-  }]);
+teamcityControllers.controller('ProjectListCtrl', function($scope, $http) {
+        
+		$scope.status="Loading";
+  // http://www.listingsearch.com/service/test_function  please check its returns one onject 
+  
+		$http({method:'GET', url:'http://teamcity.corporate.local/guestAuth/app/rest/projects'}).success(function(data) {
+ $scope.projects = data.project; // response data
+	$scope.status="Loaded";
+ 
+})});
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
+teamcityControllers.controller('ProjectBuildTypesCtrl', function($scope, $http, $id) {
+        
+		$scope.status="Loading";
+  // http://www.listingsearch.com/service/test_function  please check its returns one onject 
+  
+		$http({method:'GET', url:'http://teamcity.corporate.local/guestAuth/app/rest/projects/id:$id/buildTypes'}).success(function(data) {
+ $scope.buildTypes = data.buildTypes; // response data
+	$scope.status="Loaded";
 
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
-    }
-  }]);
+})});
+
+teamcityControllers.controller('BuildsController', function($scope, $http, $id) {
+        
+		$scope.status="Loading";
+  // http://www.listingsearch.com/service/test_function  please check its returns one onject 
+  
+		$http({method:'GET', url:'http://teamcity.corporate.local/guestAuth/app/rest/builds/id:$id/buildTypes'}).success(function(data) {
+ $scope.buildTypes = data.buildTypes; // response data
+	$scope.status="Loaded";
+
+})});

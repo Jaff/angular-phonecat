@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-10">
+      <!--Body content-->
+
+   <table class="table-responsive">
+           <thead>
+               <tr>
+               <th>Project Id</th>
+               <th>Parent Project Id</th>
+               <th>Name</th>
+               <th>Description</th>
+               <th>Url</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr ng-repeat="p in projects">
+                   <td><a ng-href="#/projects/:{{p.id}}"> {{p.id}}</a></td>
+                   <td>{{p.parentProjectId}}</td>
+                   <td>{{p.name}}</td>
+                   <td class="">{{p.description}}</td>
+                   <td ><a ng-href="{{p.webUrl}}">{{p.href}}</a></td>
+               </tr>
+           </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
